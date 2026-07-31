@@ -1,7 +1,6 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export function LoginForm() {
@@ -9,7 +8,6 @@ export function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -28,7 +26,7 @@ export function LoginForm() {
     if (res?.error) {
       setError('Email ou senha incorretos. Verifique suas credenciais.');
     } else if (res?.ok) {
-      router.push('/admin');
+      window.location.href = res.url ?? '/admin';
     }
   }
 
