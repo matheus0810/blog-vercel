@@ -20,7 +20,7 @@ export default async function PostPage({ params }: Props) {
   if (!post) return notFound();
 
   return (
-    <div className="max-w-2xl mx-auto">
+   <div className="max-w-3xl mx-auto">
       <Link
         href="/"
         className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-8"
