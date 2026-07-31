@@ -39,7 +39,6 @@ export function LoginForm() {
         <input
           className="w-full border rounded px-3 py-2"
           type="email"
-          placeholder="seu@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -50,7 +49,6 @@ export function LoginForm() {
         <input
           className="w-full border rounded px-3 py-2"
           type="password"
-          placeholder="••••••••"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
