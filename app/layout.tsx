@@ -24,12 +24,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
         </header>
         <main className="container-page py-10 flex-1">{children}</main>
-        <footer className="border-t bg-white mt-16">
-          <div className="container-page py-8 text-center text-sm text-gray-500">
-            <p className="font-semibold text-gray-700 mb-1">✍️ Blog Vercel</p>
-            <p>© {new Date().getFullYear()} · Todos os direitos reservados</p>
-          </div>
-        </footer>
       </body>
     </html>
   );
