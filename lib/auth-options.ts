@@ -19,22 +19,24 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
+        const email = credentials.email.trim().toLowerCase();
+
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+          where: { email },
         });
 
         if (!user) {
-          console.error('[auth] usuário não encontrado:', credentials.email);
+          console.error('[auth] usuário não encontrado:', email);
           return null;
         }
 
         const valid = await bcrypt.compare(credentials.password, user.passwordHash);
         if (!valid) {
-          console.error('[auth] senha inválida para:', credentials.email);
+          console.error('[auth] senha inválida para:', email);
           return null;
         }
 
-        console.log('[auth] login bem-sucedido:', credentials.email);
+        console.log('[auth] login bem-sucedido:', email);
         return { id: user.id, email: user.email, name: user.name ?? undefined };
       },
     }),
