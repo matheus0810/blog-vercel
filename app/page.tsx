@@ -32,11 +32,8 @@ export default async function HomePage() {
           ✍️ Blog
         </div>
         <h1 className="text-5xl font-bold text-gray-900 mb-4 leading-tight">
-          Bem-vindo ao Blog
+          bem vindo
         </h1>
-        <p className="text-xl text-gray-500 max-w-xl mx-auto">
-          Artigos, ideias e reflexões sobre tecnologia e desenvolvimento.
-        </p>
       </section>
 
       {/* Posts */}
