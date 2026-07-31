@@ -10,18 +10,29 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body>
-        <header className="border-b bg-white">
+      <body className="flex flex-col min-h-screen">
+        <header className="border-b bg-white sticky top-0 z-10 shadow-sm">
           <div className="container-page py-4 flex items-center justify-between">
-            <Link href="/" className="font-bold text-xl">
-              Blog Vercel
+            <Link href="/" className="font-bold text-xl text-gray-900 hover:text-indigo-600 transition-colors">
+              ✍️ Blog Vercel
             </Link>
-            <nav className="flex gap-4 text-sm">
-              <Link href="/admin">Admin</Link>
+            <nav className="flex gap-6 text-sm font-medium">
+              <Link href="/" className="text-gray-600 hover:text-indigo-600 transition-colors">
+                Início
+              </Link>
+              <Link href="/admin" className="text-gray-600 hover:text-indigo-600 transition-colors">
+                Admin
+              </Link>
             </nav>
           </div>
         </header>
-        <main className="container-page py-8">{children}</main>
+        <main className="container-page py-10 flex-1">{children}</main>
+        <footer className="border-t bg-white mt-16">
+          <div className="container-page py-8 text-center text-sm text-gray-500">
+            <p className="font-semibold text-gray-700 mb-1">✍️ Blog Vercel</p>
+            <p>© {new Date().getFullYear()} · Todos os direitos reservados</p>
+          </div>
+        </footer>
       </body>
     </html>
   );
