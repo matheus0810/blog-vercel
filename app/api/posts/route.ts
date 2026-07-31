@@ -12,7 +12,7 @@ const postSchema = z.object({
 });
 
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions as any);
+  const session = await getServerSession(authOptions);
   if (!session?.user?.id) {
     return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
   }

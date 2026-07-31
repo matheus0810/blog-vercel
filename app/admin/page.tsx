@@ -6,7 +6,7 @@ import { prisma } from '@/lib/prisma';
 import { LogoutButton } from '@/components/logout-button';
 
 export default async function AdminPage() {
-  const session = await getServerSession(authOptions as any);
+  const session = await getServerSession(authOptions);
   if (!session?.user) redirect('/login');
 
   const posts = await prisma.post.findMany({ orderBy: { updatedAt: 'desc' } });
