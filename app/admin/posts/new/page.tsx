@@ -4,7 +4,7 @@ import { authOptions } from '@/lib/auth-options';
 import { PostForm } from '@/components/post-form';
 
 export default async function NewPostPage() {
-  const session = await getServerSession(authOptions as any);
+  const session = await getServerSession(authOptions);
   if (!session?.user) redirect('/login');
 
   return (
