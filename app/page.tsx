@@ -34,7 +34,7 @@ export default async function HomePage() {
         <h1 className="text-5xl font-bold text-gray-900 mb-4 leading-tight">
           Bem-vindo ao Blog
         </h1>
-        <p className="text-xl text-gray-500 max-w-xl mx-auto">
+         <p className="text-xl text-gray-500 max-w-2xl mx-auto">
           Artigos, ideias e reflexões sobre tecnologia e desenvolvimento.
         </p>
       </section>
@@ -55,7 +55,7 @@ export default async function HomePage() {
             <p className="text-gray-400">Os posts aparecerão aqui quando forem publicados.</p>
           </div>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
               <article
                 key={post.id}
