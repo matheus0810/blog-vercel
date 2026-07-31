@@ -9,7 +9,7 @@ export default async function NewPostPage() {
   if (!session?.user) redirect('/login');
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div>
       <Link
         href="/admin"
         className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-6"
