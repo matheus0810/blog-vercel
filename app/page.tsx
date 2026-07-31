@@ -4,10 +4,17 @@ import { prisma } from '@/lib/prisma';
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    orderBy: { createdAt: 'desc' },
-  });
+  let posts: { id: string; title: string; slug: string; excerpt: string | null }[] = [];
+  try {
+    posts = await prisma.post.findMany({
+      where: { published: true },
+      orderBy: { createdAt: 'desc' },
+      select: { id: true, title: true, slug: true, excerpt: true },
+    });
+  } catch {
+    // Database not yet provisioned (e.g. first deploy before schema migration).
+    // Render empty list so the build succeeds; content appears once DB is ready.
+  }
 
   return (
     <section>
