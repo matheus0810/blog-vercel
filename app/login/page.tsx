@@ -4,7 +4,7 @@ import { authOptions } from '@/lib/auth-options';
 import { LoginForm } from '@/components/login-form';
 
 export default async function LoginPage() {
-  const session = await getServerSession(authOptions as any);
+  const session = await getServerSession(authOptions);
   if (session?.user) redirect('/admin');
 
   return (
