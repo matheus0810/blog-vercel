@@ -7,7 +7,7 @@ import { prisma } from '@/lib/prisma';
 type Props = { params: { id: string } };
 
 export default async function EditPostPage({ params }: Props) {
-  const session = await getServerSession(authOptions as any);
+  const session = await getServerSession(authOptions);
   if (!session?.user) redirect('/login');
 
   const post = await prisma.post.findUnique({ where: { id: params.id } });
