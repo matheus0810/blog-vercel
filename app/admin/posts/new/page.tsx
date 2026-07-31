@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { authOptions } from '@/lib/auth-options';
@@ -8,9 +9,15 @@ export default async function NewPostPage() {
   if (!session?.user) redirect('/login');
 
   return (
-    <section className="max-w-2xl">
-      <h1 className="text-2xl font-bold mb-4">Novo post</h1>
+    <div className="max-w-2xl mx-auto">
+      <Link
+        href="/admin"
+        className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-6"
+      >
+        ← Voltar ao admin
+      </Link>
+      <h1 className="text-2xl font-bold text-gray-900 mb-6">Novo post</h1>
       <PostForm mode="create" />
-    </section>
+    </div>
   );
 }
